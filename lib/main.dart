@@ -1,20 +1,16 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:whatsapp/Home.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:whatsapp/Login.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-
-  FirebaseFirestore.instance
-      .collection('usuarios')
-      .doc('001')
-      .set({'nome': 'Luiz'});
-
   runApp(
-    const MaterialApp(
-      home: Home(),
+    MaterialApp(
+      home: const Login(),
+      theme: ThemeData(
+        primaryColor: const Color(0xff075E54),
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          secondary: const Color(0xff25D366),
+        ),
+      ),
       debugShowCheckedModeBanner: false,
     ),
   );
